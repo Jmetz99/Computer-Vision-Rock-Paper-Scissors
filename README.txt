@@ -4,42 +4,65 @@ This project takes a model from the "Teachable Machine" website on line which ha
 
 ## Milestone 1
 
-- Downloads a model generated from the "Teachable Machine" website which has been trained with images of me showing the three options generated from my webcam. Stored in my first Git repo.
-
--
-  
-```python
-"""Insert your code here"""
-```
-
-> Insert an image/screenshot of what you have built so far here.
+- Downloaded a model generated from the "Teachable Machine" website which has been trained with images of me showing the three options rock, paper or scissors generated from my webcam. I pushed these changes to my first Git repo.
 
 ## Milestone 2
 
-- Does what you have built in this milestone connect to the previous one? If so explain how. What technologies are used? Why have you used them? Have you run any commands in the terminal? If so insert them using backticks (To get syntax highlighting for code snippets add the language after the first backticks).
+Created my first conda environment in which I downloaded the required dependencies to run the teachable machine model. Saved in requirement.txt file on Git repo.
 
-- Example below:
+## Milestone 3
 
-```bash
-/bin/kafka-topics.sh --list --zookeeper 127.0.0.1:2181
-```
+Created a file called manual_rps.py which contains the code to play rock, paper scissors with the computer. The code is given below.
 
-- The above command is used to check whether the topic has been created successfully, once confirmed the API script is edited to send data to the created kafka topic. The docker container has an attached volume which allows editing of files to persist on the container. The result of this is below:
 
 ```python
-"""Insert your code here"""
+import random
+
+options = ("Rock", "Paper", "Scissors")
+
+def get_computer_choice():
+    computer_choice = random.choice(options)
+    return computer_choice
+
+
+def get_user_choice():
+    user_choice = input("Enter your choice of Rock, Paper or Scissors: " )
+    return user_choice
+
+
+def get_winner(computer_choice, user_choice):
+    winner = ""
+    if computer_choice == "Paper" and user_choice == "Rock":
+        winner = "computer"
+    elif computer_choice == "Paper" and user_choice == "Scissors":
+        winner = "user"
+    elif computer_choice == "Rock" and user_choice == "Paper":
+        winner = "user"
+    elif computer_choice == "Rock" and user_choice == "Scissors":
+        winner = "computer"
+    elif computer_choice == "Scissors" and user_choice == "Paper":
+        winner = "computer"
+    elif computer_choice == "Scissors" and user_choice == "Rock":
+        winner = "user"
+    else:
+        winner = "Draw"
+    return winner
+    
+
+def play():
+    computer_choice = get_computer_choice()
+    user_choice = get_user_choice()
+    winner = get_winner(computer_choice, user_choice)
+    if winner == "Draw": 
+        print(winner) 
+    else:
+        print("The winner is the", winner)
+
+play()
 ```
-
-> Insert screenshot of what you have built working.
-
-## Milestone n
-
-- Continue this process for every milestone, making sure to display clear understanding of each task and the concepts behind them as well as understanding of the technologies used.
-
-- Also don't forget to include code snippets and screenshots of the system you are building, it gives proof as well as it being an easy way to evidence your experience!
 
 ## Conclusions
 
 - Maybe write a conclusion to the project, what you understood about it and also how you would improve it or take it further.
 
-- Read through your documentation, do you understand everything you've written? Is everything clear and cohesive?
+- Read through your documentation, do you understand everything you've written? Is everything clear and cohesive
