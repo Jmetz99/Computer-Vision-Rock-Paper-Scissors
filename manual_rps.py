@@ -41,4 +41,3 @@ def play():
         print("The winner is the", winner)
 
 play()
-

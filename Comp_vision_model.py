@@ -1,7 +1,7 @@
 import cv2
 from keras.models import load_model
 import numpy as np
-import time
+
 #model = load_model('keras_model.h5')
 model = load_model('/Users/jacobmetz/Documents/Computer_Vision_git/Computer-Vision-Rock-Paper-Scissors/keras_model.h5')
 cap = cv2.VideoCapture(0)
