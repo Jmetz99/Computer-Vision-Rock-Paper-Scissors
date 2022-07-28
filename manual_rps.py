@@ -7,10 +7,7 @@ def get_computer_choice():
     return computer_choice
 
 
-def get_user_choice():
-    user_choice = input("Enter your choice of Rock, Paper or Scissors: " )
-    return user_choice
-
+d
 
 def get_winner(computer_choice, user_choice):
     winner = ""
@@ -33,7 +30,6 @@ def get_winner(computer_choice, user_choice):
 
 def play():
     computer_choice = get_computer_choice()
-    user_choice = get_user_choice()
     winner = get_winner(computer_choice, user_choice)
     if winner == "Draw": 
         print(winner) 
