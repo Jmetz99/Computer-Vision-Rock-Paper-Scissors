@@ -5,7 +5,6 @@ import time
 import random
 
 model = load_model('keras_model.h5')
-cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 TIMER = int(2)
 options = ("Rock", "Paper", "Scissors")
@@ -53,6 +52,7 @@ def play():
 
 while computer_wins != 3 and user_wins != 3:
     while True:
+        cap = cv2.VideoCapture(0)
         ret, img = cap.read()
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img, "Press q to play", (200, 250), font, 3, (0, 255, 255), 4, cv2.LINE_AA)
@@ -85,20 +85,23 @@ while computer_wins != 3 and user_wins != 3:
                 TIMER = 2
                 if wins == "user": 
                     user_wins += 1
+                    cv2.putText(img, "You won that one", (200, 250), font, 7, (0, 255, 255), 4, cv2.LINE_AA)
                     print("You won that one")
                 if wins == "computer":
                     computer_wins +=1
+                    cv2.putText(img, "The computer won that one", (200, 250), font, 7, (0, 255, 255), 4, cv2.LINE_AA)
                     print("The computer won that one")
                 else:
-                    print("It's a Draw")
+                    cv2.putText(img, "It's a Draw", (200, 250), font, 7, (0, 255, 255), 4, cv2.LINE_AA)
                 break
 
+if computer_wins == 3:
+        cv2.putText(img, "The computer won!", (200, 250), font, 7, (0, 255, 255), 4, cv2.LINE_AA)
+        print("The computer won!")
+
+if user_wins == 3:
+        cv2.putText(img, "You won!", (200, 250), font, 7, (0, 255, 255), 4, cv2.LINE_AA)
+        print("You won!")
 
 cap.release()
 cv2.destroyAllWindows()
-
-if computer_wins == 3:
-    print("The computer won!")
-
-if user_wins == 3:
-    print("You won!")

@@ -60,9 +60,9 @@ def play():
 
 play()
 ```
+## Milestone 4
+Incorporating the model downloaded from teachable machine, the user can now input their choice of Rock-Paper-Scissors by showing it to the camera after a countdown.
+The game is played three times before a winner is determined.
 
 ## Conclusions
 
-- Maybe write a conclusion to the project, what you understood about it and also how you would improve it or take it further.
-
-- Read through your documentation, do you understand everything you've written? Is everything clear and cohesive
